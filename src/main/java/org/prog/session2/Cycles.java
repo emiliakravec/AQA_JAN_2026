@@ -6,7 +6,7 @@ import java.util.Random;
 // - On each cycle generate random i and random j up to 1000
 // - If (i - j) % 7 -> stop the cycle (use break)+
 
-public class Cycles {
+public class   Cycles {
 
     public static void main(String[] args) {
         for (int i = 10; i >= 0; ) {
