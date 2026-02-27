@@ -15,9 +15,4 @@ public class Car1 {
                     " is going to " + destination +
                     " at " + speed);
         }
-
-        public static void main(String[] args) {
-            Car1 car = new Car1("Emilia", 80);
-            car.goTo("Paris");
-        }
 }
