@@ -3,12 +3,15 @@ package org.prog.session20;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.prog.session20.steps.DBSteps;
 import org.prog.session20.steps.GoogleSteps;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -35,7 +38,7 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
     private WebDriver driver;
 
     @BeforeSuite
-    public void beforeSuite() throws SQLException {
+    public void beforeSuite() throws SQLException, MalformedURLException {
         connection = DriverManager.getConnection(
                 "jdbc:mysql://mysql-db-1:3306/db",
                 "root",
@@ -43,7 +46,8 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
         );
         DBSteps.connection = connection;
 
-        driver = new ChromeDriver();
+        driver = new RemoteWebDriver(new URL("http://selenium-hub:4444/"),
+                new ChromeOptions());
         GoogleSteps.driver = driver;
     }
 
