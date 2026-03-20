@@ -37,7 +37,7 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
     @BeforeSuite
     public void beforeSuite() throws SQLException {
         connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/db",
+                "jdbc:mysql://mysql-db-1:3306/db",
                 "root",
                 "password"
         );
