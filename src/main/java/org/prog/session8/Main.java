@@ -27,14 +27,14 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        Car car = new Car();
-        car.goTo("Odessa");
-        System.out.println("===============================");
-        car.goTo("Lviv", "Kyiv");
-        System.out.println("===============================");
-        car.goTo("Lviv", "Kyiv", "Dnipro");
-        System.out.println("===============================");
-        car.goTo("Lviv", "Kyiv", "Rovno", 1);
+        IPhone android = new Android("Samsung", "Black");
+        IPhone apple = new Apple("iPhone", "White");
+
+        android.call("Emilia");
+        android.unlockScreen();
+
+        apple.call("Artem");
+        apple.unlockScreen();
 
 //        Object o = new Object();
 //
