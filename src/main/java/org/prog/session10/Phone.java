@@ -10,7 +10,7 @@ public class Phone {
         this.model = model;
         this.color = color;
     }
-
+//test
     @Override
     public boolean equals(Object o) {
         if (model == null || color == null) {
