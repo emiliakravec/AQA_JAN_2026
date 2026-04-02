@@ -12,10 +12,15 @@ import java.io.FileReader;
 public class ExceptionsDemo {
 
     public static void main(String[] args) {
-        ExceptionsDemo demo = new ExceptionsDemo();
-        demo.method1("test");
-        demo.method1(null);
-        System.out.println("==============================");
+        try {
+            Phone p1 = new Phone("iPhone", "black");
+            Phone p2 = new Phone(null, "white");
+
+            p2.equals(p1); // тут впаде exception
+
+        } catch (MyPhoneException e) {
+            System.out.println("oops!");
+        }
     }
 
     public static void readFile1() {
