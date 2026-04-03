@@ -34,6 +34,15 @@ public class JUnitTests {
         Assertions.assertTrue(i >= 70);
         System.out.println("==== TEST 3 ====");
     }
+    @Test
+    public void testModelNumber() {
+        Android android = new Android();
+        android.modelNumber = 4;
+        int model = android.getModelNumber();
+
+        Assertions.assertTrue(model >= 3);
+        System.out.println("Model number: " + model);
+    }
 
     public void smth(String s) {
         System.out.println(s.length());
