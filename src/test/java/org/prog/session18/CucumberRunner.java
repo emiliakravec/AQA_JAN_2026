@@ -20,7 +20,7 @@ import java.sql.SQLException;
 //TODO: if not in DB -> write to DB phone model and its price
 
 @CucumberOptions(
-        features = "src/test/resources/features",
+        features = "src/test/resources/features/allo.feature",
         glue = "org.prog.session18.steps"
 )
 public class CucumberRunner extends AbstractTestNGCucumberTests {
@@ -33,7 +33,7 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
         connection = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/db",
                 "root",
-                "password"
+                "Password123"
         );
         DBSteps.connection = connection;
 
@@ -48,7 +48,7 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
         } catch (Exception e) {
         }
         try {
-            driver.quit();
+            //driver.quit();
         } catch (Exception e) {
         }
     }

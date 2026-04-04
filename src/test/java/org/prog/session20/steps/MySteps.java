@@ -38,7 +38,7 @@ public class MySteps {
         }
     }
 
-    @Then("Something happens with {}")
+    //@Then("Something happens with {}")
     public void somethingHappens(MyEnum myEnum) {
         Random random = new Random();
         Assert.assertTrue(random.nextInt(10) >= 7, "random issue!");

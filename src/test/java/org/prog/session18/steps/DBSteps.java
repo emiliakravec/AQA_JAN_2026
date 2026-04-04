@@ -6,6 +6,7 @@ import org.prog.session16.dto.PersonDto;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.testng.Assert;
 
 public class DBSteps {
 
@@ -48,5 +49,35 @@ public class DBSteps {
             String lastName = resultSet.getString("LastName");
             randomNames.add(firstName + " " + lastName);
         }
+    }
+    public static boolean isPhoneExists(String name) throws SQLException {
+        String query = "SELECT COUNT(*) FROM phones WHERE name = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, name);
+
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+
+        return rs.getInt(1) > 0;
+    }
+    public static void insertPhone(String name, String price) throws SQLException {
+        String query = "INSERT INTO phones (name, price) VALUES (?, ?)";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, name);
+        ps.setString(2, price);
+
+        ps.executeUpdate();
+    }
+    public static void checkPrice(String name, String price) throws SQLException {
+        String query = "SELECT price FROM phones WHERE name = ?";
+        PreparedStatement ps = connection.prepareStatement(query);
+        ps.setString(1, name);
+
+        ResultSet rs = ps.executeQuery();
+        rs.next();
+
+        String dbPrice = rs.getString("price");
+
+        Assert.assertEquals(price, dbPrice);
     }
 }

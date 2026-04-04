@@ -10,3 +10,4 @@ Feature: Test with API + DB + Selenium
     When I open google main page
     When I accept cookies if present
     Then I set search field to that person's first and last name
+    Then I process phones
